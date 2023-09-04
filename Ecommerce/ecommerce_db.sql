@@ -9,7 +9,7 @@ CREATE TABLE if not exists Cliente(
     middle_name_initial char(3),
     last_name varchar(20),
     cpf char(11) not null,
-    address varchar(45),
+    address varchar(255),
     constraint unique_cpf_client unique (cpf)
 );
 
@@ -17,7 +17,7 @@ alter table Cliente auto_increment=1;
 
 CREATE TABLE if not exists Produto(
 	idProduct int auto_increment primary key,
-    product_name varchar(10) not null,
+    product_name varchar(255) not null,
     unitPrice float,
     classification_kids bool default false,
     category enum('Eletrônicos','Vestimentas','Brinquedos','Alimentos','Cosméticos','Móveis','Geral') not null,
@@ -56,7 +56,7 @@ CREATE TABLE if not exists Fornecedor(
 	idFornecedor int auto_increment primary key,
     razãoSocial varchar(255) not null,
     cnpj char(15) not null,
-    contato varchar(10),
+    contato varchar(45),
     constraint unique_supplier unique(cnpj)
 );
 
@@ -67,8 +67,8 @@ CREATE TABLE if not exists Vendedor(
     vendedorLocal varchar(255),
     nomeFantasia varchar(255),
     cnpj char(15),
-    cpf char(9),
-    contato varchar(10),
+    cpf char(15),
+    contato varchar(45),
     constraint unique_cnpj_seller unique(cnpj),
     constraint unique_cpf_seller unique(cpf)
 );
@@ -85,7 +85,7 @@ CREATE TABLE if not exists productSeller(
 CREATE TABLE if not exists productOrder (
 	idPOproduct int,
     idPOorder int,
-    poQuatity int default 1,
+    poQuantity int default 1,
     poStatus enum('Disponível','Sem Estoque') default 'Disponível',
     primary key (idPOproduct, idPOorder),
     constraint fk_po_product foreign key (idPOproduct) references Produto(idProduct),
