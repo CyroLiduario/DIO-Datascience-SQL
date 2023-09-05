@@ -2,40 +2,39 @@
 use ecommerce;
 
 insert into Cliente (first_name, middle_name_initial, last_name, cpf, address)
-	values ('Renata', 'J', 'Pinto', '00460110723', 'Rua da Quitanda 19, Cidade Nova - Vinhedo' ),
-		   ('Matheus', 'M', 'Pimentel', '01850585706', 'Rua Bala de Prata 38, Transilvania - CM' ),
-           ('Nair', 'F', 'Belo', '01950485701', 'Av Cascadura 18, Rio Marinho - Vila Velha' ),
-           ('Marcelo', 'P', 'Santos', '02103250594', 'Rua Cel. Moreira Cesar 35, Centro - São Gonçalo' ),
-           ('Mariana', 'D', 'Cavalcante', '02799586601', 'Rua das Orquideas 22, Jardim Camburi - Vitoria' ),
-           ('Magaly', 'N', 'Pereira', '01930335707', 'Rua das Margaridas 56, Laranjeiras - Serra' ),
-           ('Paloma', 'B', 'Barrros', '04450585706', 'Rua Balao Magico 99, Cidade Nova - Itaperuna' ),
-           ('Teofilo', 'C', 'Cerqueira', '02140490981', 'Rua Coronel Josino 22, Vila Pavão - Miracema' ),
-           ('Tiara', 'D', 'Cabelo', '03378932101', 'Rua das Flores 44, Cehab - Santa Teresa' );
+	values ('Luis', 'J', 'Alvares', '05676487020', 'Rua Marechal Hermes 999, Centro Cívico - Curitiba' ),
+		   ('Matheus', 'S', 'Pereira', '89018521019', 'Praça Mauá 1, Centro - Rio de Janeiro' ),
+           ('Luana', 'F', 'Carvalho', '90793356067', 'Rua da Imperatriz 220, Centro - Petrópolis' ),
+           ('Laura', 'T', 'Santos', '82462689028', 'Praça da Luz 2, Luz - São Paulo' ),
+           ('Mariana', 'C', 'Alcantara', '84372490070', 'Esplanada dos Ministérios 12, Centro - Brasília' ),
+           ('Antonio', 'P', 'Magalhães', '49478387014', 'Rua da Guia s.n., Recife - Recife' ),
+           ('Paulo', 'N', 'Barrros', '14658988089', 'Largo de São Sebastião s.n., Centro - Manaus' ),
+           ('Enzo', 'R', 'Souza', '69214026068', 'Largo do Bonfim, s.n., Bonfim - Salvador' ),
+           ('Valentina', 'G', 'Tavares', '19285536050', 'Av. Nossa Sra. dos Navegantes, 700A, Enseada do Suá - Vitória' );
 select * from Cliente;
 
 insert into Produto (product_name, unitPrice, classification_kids, category, avaliação, size) 
-	values ('Fone de Ouvido', 10, false, 'Eletrônicos','4', null),
-		   ('Barbie Elsa', 15, true, 'Brinquedos','3', null),
-           ('Body Carters', 10, true, 'Vestimentas','5', null),
-           ('Microfone Vedo - Youtuber', 200, false, 'Eletrônicos','4', null),
-           ('Sofa retrátil', 400, false, 'Móveis','3', '220x90x80'),
-           ('Monitor LED 24"', 400, false, 'Eletrônicos', '4', null),
-           ('Agua Mineral', 2, false, 'Alimentos', '5', '500ml'),
-		   ('Carabina Ar Comprimido 5,5mm', 100, true, 'Brinquedos', '3', '6x8x120'),
-           ('Camisa Polo Masculina', 100, true, 'Vestimentas', '5', null),
-           ('Teclado Gamer Mecanico LED', 100, false, 'Eletrônicos', '4', null),
-           ('Cadeira de escritorio giratoria', 500,  false, 'Móveis', '3', '65x55x135');
+	values ('Headset Beats', 10, false, 'Eletrônicos','4', null),
+		   ('Barbie Margot Robbie', 15, true, 'Brinquedos','3', null),
+           ('Polo Masculina', 10, true, 'Vestimentas','5', null),
+           ('Projetor Portátil', 200, false, 'Eletrônicos','4', null),
+           ('Cadeira Gamer', 400, false, 'Móveis','3', '65x55x135'),
+           ('Console Xbox Series X', 2400, false, 'Eletrônicos', '4', null),
+           ('Suco Natural de Laranka', 2, false, 'Alimentos', '5', '500ml'),
+		   ('Drone', 100, false, 'Eletrônicos', '3', '6x8x120'),
+           ('Vestido Curto de Verão', 100, true, 'Vestimentas', '5', null),
+           ('Monitor Widescreen 24"', 500, false, 'Eletrônicos', '4', null),
+           ('Poltrona Reclinável', 500,  false, 'Móveis', '3', '87x74x110');
 select * from Produto;
 
  
 insert into Pedido (idOrderClient, orderStatus, orderDescription, freight, total, paymentMethod)
-	values (1,default,'Compra via Aplicativo', default, null, 'Pix'),
-		   (2,default,'Compra via Aplicativo', 50, null, 'Cartão de Crédito'),
+	values (1,default,'Compra via Website', default, null, 'Pix'),
+		   (2,default,'Compra via App', 50, null, 'Cartão de Crédito'),
            (3,'Confirmado', null, default, null, 'Boleto'),
            (4,'Confirmado',null, default, null, 'Pix'),
-           (5, default, 'Compra via Web Site', 150, null, 'Cartão de Crédito');
+           (5, default, 'Compra via App', 150, null, 'Cartão de Crédito');
 select * from Pedido;
-
   
 insert into productOrder (idPOproduct, idPOorder, poQuantity, poStatus)
 	values (1,1,2,null),
@@ -49,51 +48,52 @@ insert into Estoque (storageLocation, quantity)
            ('São Paulo', 10),
            ('São Paulo', 100),
            ('São Paulo', 10),
-           ('Brasilia', 10);
+           ('Curitiba', 10);
 select * from Estoque;
 
 
 insert into storageLocation (idLproduct, idLstorage, location)
-	values (1,2,'RJ'),
-		   (2,6,'GO');
+	values (1,1,'RJ'),
+		   (2,4,'SP'),
+           (3,6,'CWB');
 select * from storageLocation;
 
 
 insert into Fornecedor (razãoSocial, cnpj, contato)
-	values ('Almeida e Filhos', '12345678901234', '21995739558'),
-		   ('Eletronicos Silva', '43210987654321', '41998956758'),
-           ('Eletronicos Valma', '87654321098765', '11996749558');
+	values ('Nuk Eletrônicos', '20193431000129', '(91) 96854-2059'),
+		   ('Morena Rosa', '98442296000103', '(38) 97271-9255'),
+           ('Matel', '07247686000169', '(48) 99165-6306'),
+           ('Madeira Madeira', '42546135000105', '(63) 99338-7417');
 select * from Fornecedor;
 
 
 insert into productSupplier (idPsSupplier, idPsProduct, quantity)
 	values (1,1,500), 
-		   (1,2,400),
+		   (3,2,400),
 		   (2,4,633),
-           (3,3,5),
-           (2,5,10);
+           (1,3,5),
+           (4,5,10);
 select * from productSupplier;
 
-
 insert  into Vendedor (razãoSocial, nomeFantasia, cnpj, cpf, vendedorLocal, contato)
-	values ('Tech Eletronics', null, 12345678901234, null, 'Rio de Janeiro', 21995718558),
-		   ('Boutique Dunga', null, null, 12345678901, 'Rio de Janeiro', 21995893451),
-           ('Tech Eletronica', null, 23456789012345, null, 'São Paulo', 1197618552);
+	values ('Quick Eletrônicos', null, 41607992000105, null, 'Curitiba', '(61) 98273-7497'),
+		   ('Boutique Paetas', null, null, 90013444000154, 'Vitória', '(53) 97968-8260'),
+           ('Eletrotech', null, 82546008000112, null, 'Rio Branco', '(69) 97985-9158');
 select * from Vendedor;
 
 insert into productSeller (idPSeller, idPProduct, prodQuantity)
-	values (10,2,80),
-           (11,1,10);
+	values (1,1,80),
+           (2,3,10);
 select * from productSeller;           
 
 select count(*) from Cliente;
 select * from Cliente c, Pedido p where c.idClient = p.idOrderClient;
 
-select count(*) from cliente c, pedido o 
-	where c.idclient = idorderclient;
+select count(*) from cliente c, pedido p 
+	where c.idclient = p.idOrderClient;
 
-select * from cliente c inner join pedido o on c.idclient = o.idorderclient
-	inner join productorder p on p.idPoOrder = o.idorder;
+select * from cliente c inner join pedido p on c.idclient = p.idOrderClient
+	inner join productOrder po on po.idPoOrder = p.idOrder;
     
     select * from pedido;
     select * from productorder;
