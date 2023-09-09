@@ -8,14 +8,14 @@ use oficina;
 create table clientes(
     idCliente int auto_increment primary key,
     customerType enum('Pessoa Jurídica','Pessoa Física') default 'Pessoa Física',
-    CPF_CNPJ varchar(14) not null unique,
+    CPF_CNPJ varchar(18) not null unique,
     nomeCompleto varchar(255) not null,
     dataNascimento date,
     endereco varchar(255) not null,
     cidade varchar(50) not null,
     estado varchar(50) not null,
     cep varchar(9) not null,
-    contatoTelefone varchar(11) not null,
+    contatoTelefone varchar(15) not null,
     email varchar(100) not null
 );
 
@@ -32,15 +32,15 @@ create table veiculos(
 
 create table fornecedores(
     idFornecedor int auto_increment primary key,
-    cnpj varchar(14) not null unique,
+    cnpj varchar(18) not null unique,
     razãoSocial varchar(255) not null,
     nomeFantasia varchar(255),
     endereco varchar(255) not null,
     cidade varchar(50) not null,
-    cep varchar(8) not null,
+    cep varchar(9) not null,
     estado varchar(30) not null,
     nomeContato varchar(50) not null,
-    telefone varchar(11) not null,
+    telefone varchar(15) not null,
     email varchar(100) not null
 );
 
@@ -53,7 +53,7 @@ create table funcionarios(
     cidade varchar(50) not null,
     cep varchar(8) not null,
     estado varchar(30) not null,
-    telefone varchar(11) not null,
+    telefone varchar(15) not null,
     email varchar(100) not null,
     função enum('Mecânico','Latoeiro','Administrativo','Vendedor','Recepcionista','Lavador') not null,
     setor enum('Oficina', 'Vendas', 'Administração') not null
