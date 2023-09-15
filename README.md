@@ -1,6 +1,7 @@
 <div style="align-items:center">
 <img src="https://hermes.dio.me/tracks/f5dba255-da18-427a-a02a-ca11a339c1cd.png" alt="Logo" width="100">
 </div>
+
 # Potência Tech powered by iFood | Ciência de Dados
 
 ### Desafio de Projeto Lógico de Banco de Dados SQL
